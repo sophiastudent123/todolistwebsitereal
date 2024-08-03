@@ -1,0 +1,155 @@
+body {
+    background-image:url("./bluebows.jpg");
+}
+
+
+
+#websitetitle{
+    text-align: center;
+    font-family:Helvetica, sans-serif;
+    margin-top: 150px;
+    color: rgba(157, 195, 233, 0.772);
+    
+}
+
+
+.list {
+   width: 100%;
+   max-width: 540px;
+   background-color: aliceblue;
+   margin: 100px auto 20px;
+   padding: 40px 30px 70px;
+   border-radius: 10px;
+}
+
+.list h2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    
+}
+
+input {
+    flex:1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 20px;
+    font-weight: 14px;
+}
+
+
+.dropdown a{
+    display:block;
+    text-decoration: none;
+    background-color: aliceblue;
+    color:gray;
+    padding: 10px 15px;
+}
+
+.dropdown .content {
+    display: none;
+    position: absolute;
+    margin-left: 50px;
+    align-items: center;
+    min-width: 100px;
+    width:100px;
+    box-shadow: 2px 2px 5px black;
+}
+
+.dropdown:hover .content {
+    display:block;
+}
+
+
+.dropdown a:hover {
+    background-color: white;
+}
+button {
+    border: none;
+    outline: none;
+    padding: 16px 40px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 40px;
+    color: grey;
+    background-color: rgb(223, 233, 242);
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out,  transform 0.3s ease-in-out;
+
+}
+
+button:hover {
+background-color: darkgray;
+transition-delay: 5ms;
+transform: scale(1.05); /* Slightly enlarge the button */
+
+}
+#calenderbutton {
+    padding:10px;
+    font-size: 15px;
+    color: gray;
+    text-decoration: none;
+    box-sizing: 10px 10px 10px 10px;
+    background-color: rgba(213, 225, 234, 0.642);
+    border-radius: 10px;
+}
+input {
+    padding:10px 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(180, 187, 188);
+    
+}
+
+ul li {
+    list-style:none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor:pointer;
+    position: relative;
+}
+
+
+
+ul li::before{
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: rgb(197, 220, 238);
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 8px;
+
+}
+
+ul li.checked {
+    background: transparent;
+    text-decoration: line-through;
+    
+    color:grey;
+}
+
+ul li.checked::before {
+    background-color:rgb(197, 220, 238);
+}
+
+ul li button {
+    position: absolute;
+    right: 0;
+    padding:5px;
+  
+    
+}
