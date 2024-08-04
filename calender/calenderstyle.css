@@ -11,4 +11,49 @@ body {
     align-items: center;
     justify-content: center;
     background: aliceblue;
+
+}
+
+.calender {
+    width: 380px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: azure;
+    border-radius:10px;
+    box-shadow: 0 0 10px gray;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+}
+
+.header button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 4px rgb(207, 202, 202);
+}
+
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.day {
+    text-align: center;
+    padding: 5px;
+    color:rgb(199, 214, 214);
+    font-weight: 500;
 }
