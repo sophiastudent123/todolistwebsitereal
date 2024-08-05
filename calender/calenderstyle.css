@@ -1,18 +1,27 @@
 :root {
-    --dark-text: #f8fbff;
+    --dark-text: gray;
     --light-body: #f3f8fe;
     --light-main: #fdfdfd;
     --light-second: #c3c2c8;
-    --light-hover: #f0f0f0;
+    --light-hover: gray;
     --light-text: #151426;
-    --light-btn: #9796f0;
+    --light-btn: aliceblue;
     --blue: #0000ff;
     --white: #fff;
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     --font-family: consolas;
 }
 
-
+a{
+    text-decoration: none;
+    box-sizing: 15px 10px 10px 15px;
+    background-color: aliceblue;
+    color:black;
+    padding-top: 5px;
+    border-radius: 10px;
+    display: block;
+    
+}
 * {
     padding: 0;
     margin: 0;
@@ -51,12 +60,12 @@ html, body {
 }
 
 .calender-header {
-    background: #9796f0;
+    background: aliceblue;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
-    color: var(--white);
+    color: gray;
     padding: 10px;
 }
 
@@ -169,7 +178,7 @@ html, body {
 
 .calender-days div:hover{
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-    background-color: #fbc7d4;
+    background-color: aliceblue;
     border-radius: 20%;
     color: var(--dark-text);
 
@@ -240,7 +249,7 @@ html, body {
     font-family:Microsoft JhengHei UI;
     font-size: 1.4 rem;
     padding-right: 5%;
-    border-right: 3px solid #9796f0;
+    border-right: 3px solid rgb(207, 229, 249);
     position: absolute;
     left: -1rem;
 }
