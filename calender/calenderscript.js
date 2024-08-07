@@ -150,3 +150,17 @@ setInterval(()=> {
     todayShowTime.textContent = formateTimer
 }, 1000)
 
+let calender_days = document.querySelector('.calender-days')
+let toDoList = document.querySelector('.date-time-formate')
+let dayPicked
+calender_days.addEventListener('click',function(e){
+    if (e.target.tagName ==="DIV"){
+        let day = e.target.innerHTML
+        console.log(day)
+        if (day>=0 && day<=31){
+            dayPicked = day
+        }
+        console.log(dayPicked)
+        toDoList.innerHTML = "hi"
+    }
+})
