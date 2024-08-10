@@ -127,7 +127,9 @@ const showCurrentDateOption = {
     weekDay: 'long',
 }
 
-const currentDateFormate = new Intl.DateTimeFormat (
+const currentDateFormate = 
+
+     new Intl.DateTimeFormat (
     'en-US',
     showCurrentDateOption
 ).format(currshowDate)
@@ -150,6 +152,7 @@ setInterval(()=> {
     todayShowTime.textContent = formateTimer
 }, 1000)
 
+
 let calender_days = document.querySelector('.calender-days')
 let toDoList = document.querySelector('.date-time-formate')
 let dayPicked
@@ -164,3 +167,7 @@ calender_days.addEventListener('click',function(e){
         toDoList.innerHTML = "hi"
     }
 })
+
+//get todo list data
+
+localStorage.getItem('data')
