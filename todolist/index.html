@@ -17,25 +17,32 @@
         <h2>To-Do List:</h2>
        
         <div class="input">
+            <div class="user-input-field">
         <input type="text" id="userinput" placeholder="Add your task..." >
-        <div class="dropdown">
+    </div>
+        <!-- <div class="dropdown">
             <button id="menubutton">Pick A Time...</button>
             <div class="content">
                 <a href="#" class="menuchoices">Today</a>
                 <a href="#" class="menuchoices">Next Week</a>
                 <a href="#" class="menuchoices">Next Month</a>
         </div>
-        </div>
+        </div> -->
+        <div class="date-group">
+        <label for="date" id="datelabel" >Pick A Time...</label>
+        <input type="date"id="date">
+    </div>
         <button  id="addButton">add</button>
     </div>
     <div id="todolist">
         <ul id="listitems">
-            <!-- <li class="checked">task</li>
+             <li class="checked">task</li>
             <li>task</li>
-            <li>task</li> -->
+            <li>task</li> 
              
         </ul>
-    </div>   
+    </div> 
+    
     </div>
     </div>
     <script src="script.js"></script>

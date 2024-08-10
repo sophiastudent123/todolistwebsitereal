@@ -2,13 +2,10 @@
 const itemlist = document.getElementById("listitems")
 let userinput = document.getElementById("userinput")
 let listContainer = document.getElementById("listcontainer")
-let numOfItems = 1;
+
 
 function addTask(){
-    if(numOfItems>15){
-        alert("Number of items suceeded please delete one")
-        return;
-    }
+   
    let item = document.createElement('div')
     console.log("working")
     let inputValue = userinput.value;

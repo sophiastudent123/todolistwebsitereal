@@ -11,8 +11,29 @@ body {
     color: rgba(157, 195, 233, 0.772);
     
 }
-
-
+#userinput{
+    width: 200px;
+}
+.date-group{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+}
+#datelabel {
+    align-self: start;
+    margin-bottom: 5px;
+   
+    
+   
+}
+#date {
+    padding: 0.5em;
+    width: 100%;
+    width: 170px;
+    font-size: 15px;
+    width:100%;
+    
+}
 .list {
    width: 100%;
    max-width: 540px;
@@ -43,37 +64,11 @@ input {
     border: none;
     outline: none;
     background: transparent;
-    padding: 20px;
+    padding: 15px;
     font-weight: 14px;
 }
 
 
-.dropdown a{
-    display:block;
-    text-decoration: none;
-    background-color: aliceblue;
-    color:gray;
-    padding: 10px 15px;
-}
-
-.dropdown .content {
-    display: none;
-    position: absolute;
-    margin-left: 50px;
-    align-items: center;
-    min-width: 100px;
-    width:100px;
-    box-shadow: 2px 2px 5px black;
-}
-
-.dropdown:hover .content {
-    display:block;
-}
-
-
-.dropdown a:hover {
-    background-color: white;
-}
 button {
     border: none;
     outline: none;
