@@ -127,9 +127,9 @@ const showCurrentDateOption = {
     weekDay: 'long',
 }
 
-const currentDateFormate = 
-
-     new Intl.DateTimeFormat (
+ 
+function updateTime (){
+    const currentDateFormate = new Intl.DateTimeFormat (
     'en-US',
     showCurrentDateOption
 ).format(currshowDate)
@@ -151,10 +151,13 @@ setInterval(()=> {
     )}:${`${timer.getSeconds()}`.padStart(2, '0')}`
     todayShowTime.textContent = formateTimer
 }, 1000)
+}
 
+updateTime()
 
 let calender_days = document.querySelector('.calender-days')
-let toDoList = document.querySelector('.date-time-formate')
+let toDoList = document.createElement('DIV')
+toDoList.className = 'todolist'
 let dayPicked
 calender_days.addEventListener('click',function(e){
     if (e.target.tagName ==="DIV"){
@@ -162,12 +165,46 @@ calender_days.addEventListener('click',function(e){
         console.log(day)
         if (day>=0 && day<=31){
             dayPicked = day
+            getItemForDay(dayPicked)
+        }
+        if (dayPicked!==""){
+            e.target.classList.toggle('hide')
         }
         console.log(dayPicked)
-        toDoList.innerHTML = "hi"
+        
     }
 })
 
-//get todo list data
+//make function so when we get day we choose the right item
 
-localStorage.getItem('data')
+function getItemForDay(day){
+    for (let i = 0; i<reminders.length; i++){
+        let reminderObject = reminders[i].date
+        let reminderDateText= reminderObject.split(' ')
+        console.log(monthNames[currentMonth.value])
+        if (reminderDateText[2]===day && reminderDateText[1]===monthNames[currentMonth.value]){
+            toDoList.innerHTML = reminders[i].item
+        }
+    }
+}
+
+// make array for all reminders
+
+const reminders = []
+
+for (let i =0; i<localStorage.length; i++){
+    if (localStorage.key(i)==='data'){
+        continue;
+    }
+    else {
+        const item = localStorage.key(i)
+        const date = localStorage.getItem(item)
+        const itemObject = {
+            item: item,
+            date: date
+        }
+        reminders.push(itemObject)
+    }
+}
+
+

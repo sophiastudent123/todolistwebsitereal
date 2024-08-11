@@ -2,6 +2,8 @@
 const itemlist = document.getElementById("listitems")
 let userinput = document.getElementById("userinput")
 let listContainer = document.getElementById("listcontainer")
+let date = document.getElementById('date')
+let dateInput = date.value
 
 
 function addTask(){
@@ -18,18 +20,15 @@ function addTask(){
         let li =document.createElement("li");
        li.innerHTML = userinput.value
 
-        if (menuchoice!==""){
+        if (dateEntered!==""){
             itemTitle = document.createElement('h3')
             itemTitle.id = 'itemtitle'
-            itemTitle.textContent = menuchoice;
+            itemTitle.textContent = dateEntered;
             item.appendChild(itemTitle)
             
 
         }
-        
-        
-       
-        
+        localStorage.setItem(userinput.value,itemTitle.textContent)
          itemlist.appendChild(item)
        
         let deleteButton = document.createElement("button")
@@ -37,12 +36,11 @@ function addTask(){
         deleteButton.innerHTML = ("delete")
        
        item.appendChild(li)
-       localStorage.setItem(numOfItems,userinput.value)
+       
         li.appendChild(deleteButton)
-        numOfItems++;
+     
         
     }
-    
     userinput.value = "";
 saveData() 
 
@@ -55,10 +53,13 @@ listContainer.addEventListener('click', function(e) {
      saveData();
     } else if (e.target.id === 'deletebutton') {
       let parent =   e.target.parentElement; // Remove list item
-       parent.parentElement.remove()
-       localStorage.removeItem()
+
+       localStorage.removeItem(parent.textContent.substring(0,parent.textContent.length-6))
+      
+       
+        parent.parentElement.remove()
        //figure out how to get key from value
-       numOfItems--;
+       
      saveData(); // Update localStorage after removal
     }
 });
@@ -70,26 +71,37 @@ function saveData() {
 function loadData(){
     itemlist.innerHTML = localStorage.getItem('data')
 }
+//localStorage.clear()
 loadData()
+
 const addButton = document.getElementById('addButton')
 addButton.addEventListener('click',()=>{
+    console.log(date.value)
+    dateInput = date.value
+    getDate()
     addTask()
 } )
 
-////dropdown menu
-
-const dropButton = document.getElementById('menubutton')
-const menucontent = document.getElementsByClassName('menuchoices')
-let menuchoice = "";
-Array.from(menucontent).forEach(element => {
-    // Add click event listener to each element
-    element.addEventListener('click', ()=>{
-        menuchoice = element.innerHTML
-        dropButton.innerHTML=menuchoice
+////date calender code 
+let dateEntered = ""
+let months = ["January", "Feburary", "March", "April", "May", "June", "July", "August",
+     "September", "October", "November", "December"]
+     let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+function getDate(){
+   
+    if (dateInput!==""){
+        let dateObject = new Date(dateInput)
+       let month= months[dateObject.getMonth()]
+       let day = dateObject.getDate() + 1
+       let dayOfWeek = daysOfWeek[dateObject.getDay()+1]
+       dateEntered = dayOfWeek +" "+month+" "+day
+       console.log(dateEntered)
     }
-    );
-});
+}
 
 
-console.log(localStorage.getItem(numOfItems))
+
+
+
+
 //
