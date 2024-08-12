@@ -353,7 +353,15 @@ html, body {
 }
 
 .date-time-formate.hide{
-    animation: to-right 1s forwards;
-    visibility: none;
-    pointer-events: none;
+    display: none;
+}
+
+#reminders.hide {
+    display: none;
+}
+
+#reminders {
+
+    margin: 90px;
+    align-items: center;
 }

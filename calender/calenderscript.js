@@ -1,3 +1,25 @@
+// make array for all reminders
+
+const reminders = []
+
+for (let i =0; i<localStorage.length; i++){
+    if (localStorage.key(i)==='data'){
+        continue;
+    }
+    else {
+        const item = localStorage.key(i)
+        const date = localStorage.getItem(item)
+        const itemObject = {
+            item: item,
+            date: date
+        }
+        reminders.push(itemObject)
+    }
+}
+
+
+
+//check if leap year
 const isLeapYear  = (year) => {
     return (
         (year % 4 === 0 && year % 100 !==0 && year % 400 !== 0)||
@@ -67,9 +89,10 @@ const generateCalender = (month, year) => {
 
     for (let i =0; i<=days_of_month[month]+first_day.getDay()-1; i++){
         let day = document.createElement('div')
-
+        
         if (i >= first_day.getDay()){
             day.innerHTML = i - first_day.getDay() + 1
+            if (day)
             if (i - first_day.getDay() + 1 === currentDate.getDate() && year === currentDate.getFullYear()
             && month=== currentDate.getMonth()){
             day.classList.add('current-date')
@@ -156,8 +179,8 @@ setInterval(()=> {
 updateTime()
 
 let calender_days = document.querySelector('.calender-days')
-let toDoList = document.createElement('DIV')
-toDoList.className = 'todolist'
+
+
 let dayPicked
 calender_days.addEventListener('click',function(e){
     if (e.target.tagName ==="DIV"){
@@ -167,43 +190,48 @@ calender_days.addEventListener('click',function(e){
             dayPicked = day
             getItemForDay(dayPicked)
         }
-        if (dayPicked!==""){
-            e.target.classList.toggle('hide')
+        const elements = document.getElementsByClassName('date-time-formate');
+        for (const element of elements) {
+            element.classList.toggle('hide');
         }
+        remindersList.classList.toggle('hide')
+       if (remindersList.classList.contains('hide')){
+        clearReminders()
+       }
         console.log(dayPicked)
         
     }
 })
 
 //make function so when we get day we choose the right item
-
+let remindersList = document.getElementById('reminders')
 function getItemForDay(day){
+    let found = false
     for (let i = 0; i<reminders.length; i++){
+       
         let reminderObject = reminders[i].date
         let reminderDateText= reminderObject.split(' ')
         console.log(monthNames[currentMonth.value])
         if (reminderDateText[2]===day && reminderDateText[1]===monthNames[currentMonth.value]){
+            let toDoList = document.createElement('li')
             toDoList.innerHTML = reminders[i].item
+            remindersList.appendChild(toDoList)
+            console.log(toDoList.innerHTML)
+            found = true
         }
+        
     }
+
+    if (found===false){
+        let toDoList = document.createElement('li')
+        toDoList.innerHTML = 'no reminders!'
+        remindersList.appendChild(toDoList)
+    }
+  
 }
-
-// make array for all reminders
-
-const reminders = []
-
-for (let i =0; i<localStorage.length; i++){
-    if (localStorage.key(i)==='data'){
-        continue;
-    }
-    else {
-        const item = localStorage.key(i)
-        const date = localStorage.getItem(item)
-        const itemObject = {
-            item: item,
-            date: date
-        }
-        reminders.push(itemObject)
+function clearReminders(){
+    while (remindersList.firstChild){
+        remindersList.removeChild(remindersList.firstChild)
     }
 }
 
